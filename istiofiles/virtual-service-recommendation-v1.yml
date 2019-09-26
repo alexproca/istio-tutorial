@@ -4,11 +4,15 @@ metadata:
   name: recommendation
 spec:
   hosts:
-  - recommendation
+  - "recommendation.local"
+  gateways:
+  - recommendation-gw
   http:
   - route:
     - destination:
         host: recommendation
+        port:
+          number: 8080
         subset: version-v1
       weight: 100
 ---
