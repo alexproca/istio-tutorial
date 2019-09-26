@@ -13,6 +13,6 @@ spec:
         host: recommendation
         port:
           number: 8080
-        subset: version-v1
+        # subset: version-v1
       weight: 100
 ---
