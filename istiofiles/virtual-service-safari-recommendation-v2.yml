@@ -4,16 +4,26 @@ metadata:
   name: recommendation
 spec:
   hosts:
-  - recommendation
+  - "recommendation.local"
+  gateways:
+  - recommendation-gw
   http:
-  - match:
-    - headers:
-        baggage-user-agent:
-          regex: .*Safari.*
-    route:
+  - route:
     - destination:
         host: recommendation
         subset: version-v2
+    match:
+    - headers:
+        user-agent:
+          regex: .*Safari.*
+  # - route:
+  #   - destination:
+  #       host: recommendation
+  #       subset: version-v2
+  #   match:
+  #   - headers:
+  #       secret:
+  #         regex: .*123.*
   - route:
     - destination:
         host: recommendation

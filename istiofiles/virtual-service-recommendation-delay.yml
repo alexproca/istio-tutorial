@@ -4,7 +4,9 @@ metadata:
   name: recommendation
 spec:
   hosts:
-  - recommendation
+  - "recommendation.local"
+  gateways:
+  - recommendation-gw
   http:
   - fault:
       delay:
